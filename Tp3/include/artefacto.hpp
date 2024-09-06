@@ -1,0 +1,44 @@
+#ifndef AYED_TP3_1C2024_ARTEFACTO_HPP
+#define AYED_TP3_1C2024_ARTEFACTO_HPP
+
+#include <string>
+#include <ostream>
+
+enum tipo {
+    CABEZA = 1,
+    MANOS = 2,
+    TORSO = 3,
+    PIERNAS = 4,
+    ESFERA_PLANAR = 5,
+    PISTA_DE_LUZ = 6,
+    TIPO_INDEFINIDO = 0
+};
+
+enum rareza {
+    TRES_ESTRELLAS = 3,
+    CUATRO_ESTRELLAS = 4,
+    CINCO_ESTRELLAS = 5, 
+    RAREZA_INDEFINIDA = 0
+};
+
+class artefacto {
+private:
+    int id{};
+    std::string set;
+    tipo tipo1{};
+    size_t nivel{};
+    rareza rareza1{};
+
+public:
+    artefacto() = default;
+
+    artefacto(int id, std::string set, tipo tipo1, size_t nivel, rareza rareza1);
+
+    friend std::ostream& operator<<(std::ostream& os, const artefacto& artefacto1);
+
+    bool operator==(const artefacto& artefacto1);
+
+    ~artefacto() = default;
+};
+
+#endif
